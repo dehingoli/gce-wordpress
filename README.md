@@ -8,7 +8,8 @@ http://www.linuxserve.com/2015/05/install-latest-wordpress-version-on.html
 First of all, we meed to install the LAMP server so that you can run WordPress on Debian. To do this, open the terminal and run these commands:
 
 
-*sudo apt-get install apache2 mysql-client mysql-server php5 php5-mysql php5-curl php5-gd unzip
+*sudo apt-get install apache2 mysql-client mysql-server php5 php5-mysql php5-curl php5-gd unzip git
+sudo apt-get update
 
 During the installation you will be asked to enter a password for the MySQL root user:
 
@@ -90,9 +91,9 @@ define('DB_HOST', 'localhost');
 Save your file and exit. Finally open your browser and type this link to complete the installation of WordPress:
 
 http://localhost/wordpress/
-
-Then follow setup instructions:
-
+to do:
+Install webmin
+install ssl
 
 
 
