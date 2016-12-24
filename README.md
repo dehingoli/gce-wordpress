@@ -7,9 +7,8 @@ http://www.linuxserve.com/2015/05/install-latest-wordpress-version-on.html
 
 First of all, we meed to install the LAMP server so that you can run WordPress on Debian. To do this, open the terminal and run these commands:
 
-su - 
-apt-get install apache2 mysql-client mysql-server php5 php5-mysql php5-curl php5-gd
-*sudo apt-get install apache2 mysql-client mysql-server php5 php5-mysql php5-curl php5-gd
+
+*sudo apt-get install apache2 mysql-client mysql-server php5 php5-mysql php5-curl php5-gd unzip
 
 During the installation you will be asked to enter a password for the MySQL root user:
 
@@ -47,12 +46,18 @@ Open the terminal and issue these commands:
 
 cd /tmp 
 wget -c http://wordpress.org/latest.zip 
-*sudo apt-get install unzip
+sudo apt-get install unzip
+
 sudo unzip -q latest.zip -d /var/www/html/ 
+
 sudo chown -R www-data.www-data /var/www/html/wordpress 
+
 sudo chmod -R 755 /var/www/html/wordpress 
+
 sudo mkdir -p /var/www/html/wordpress/wp-content/uploads 
+
 sudo chown -R www-data.www-data /var/www/html/wordpress/wp-content/uploads
+
 
 Let's now insert our database details to the WordPress config file. To do this, run these commands:
 
@@ -61,7 +66,7 @@ sudo cp wp-config-sample.php wp-config.php
 
 Edit the wp-config.php file with any text editor of your choice. For example, you can use gedit or nano:
 
-gedit wp-config.php
+sudo gedit wp-config.php
 
 or
 
