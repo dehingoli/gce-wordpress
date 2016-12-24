@@ -9,12 +9,15 @@ First of all, we meed to install the LAMP server so that you can run WordPress o
 
 su - 
 apt-get install apache2 mysql-client mysql-server php5 php5-mysql php5-curl php5-gd
+*sudo apt-get install apache2 mysql-client mysql-server php5 php5-mysql php5-curl php5-gd
 
 During the installation you will be asked to enter a password for the MySQL root user:
 
 
 
 Set any password of your choice then proceed.
+
+root/root
 
 2. Creating WordPress Database
 
@@ -36,6 +39,7 @@ service apache2 restart
 service mysql restart
 
 *$ sudo /etc/init.d/apache2 restart
+*$ sudo /etc/init.d/mysql restart
 
 Installing WordPress
 
@@ -43,16 +47,17 @@ Open the terminal and issue these commands:
 
 cd /tmp 
 wget -c http://wordpress.org/latest.zip 
-unzip -q latest.zip -d /var/www/html/ 
-chown -R www-data.www-data /var/www/html/wordpress 
-chmod -R 755 /var/www/html/wordpress 
-mkdir -p /var/www/html/wordpress/wp-content/uploads 
-chown -R www-data.www-data /var/www/html/wordpress/wp-content/uploads
+*sudo apt-get install unzip
+sudo unzip -q latest.zip -d /var/www/html/ 
+sudo chown -R www-data.www-data /var/www/html/wordpress 
+sudo chmod -R 755 /var/www/html/wordpress 
+sudo mkdir -p /var/www/html/wordpress/wp-content/uploads 
+sudo chown -R www-data.www-data /var/www/html/wordpress/wp-content/uploads
 
 Let's now insert our database details to the WordPress config file. To do this, run these commands:
 
 cd /var/www/html/wordpress/ 
-cp wp-config-sample.php wp-config.php
+sudo cp wp-config-sample.php wp-config.php
 
 Edit the wp-config.php file with any text editor of your choice. For example, you can use gedit or nano:
 
@@ -60,11 +65,22 @@ gedit wp-config.php
 
 or
 
-nano wp-config.php
+sudo nano wp-config.php
 
 Then enter the database name, database user and password you have created earlier:
 
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define('DB_NAME', 'wpdatabase');
 
+/** MySQL database username */
+define('DB_USER', 'wpuser');
+
+/** MySQL database password */
+define('DB_PASSWORD', 'wppass');
+
+/** MySQL hostname */
+define('DB_HOST', 'localhost');
 
 Save your file and exit. Finally open your browser and type this link to complete the installation of WordPress:
 
