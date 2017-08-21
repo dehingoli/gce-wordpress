@@ -56,20 +56,24 @@ cd /tmp
 wget -c http://wordpress.org/latest.zip 
 sudo apt-get install unzip
 
+
 sudo unzip -q latest.zip -d /var/www/html/ 
+cd /var/www/html/wordpress/ 
+sudo mv * ../
 
-sudo chown -R www-data.www-data /var/www/html/wordpress 
 
-sudo chmod -R 755 /var/www/html/wordpress 
+sudo chown -R www-data.www-data /var/www/html/
 
-sudo mkdir -p /var/www/html/wordpress/wp-content/uploads 
+sudo chmod -R 755 /var/www/html/
 
-sudo chown -R www-data.www-data /var/www/html/wordpress/wp-content/uploads
+sudo mkdir -p /var/www/html/wp-content/uploads 
+
+sudo chown -R www-data.www-data /var/www/html/wp-content/uploads
 
 
 Let's now insert our database details to the WordPress config file. To do this, run these commands:
 
-cd /var/www/html/wordpress/ 
+cd /var/www/html/
 sudo cp wp-config-sample.php wp-config.php
 
 Edit the wp-config.php file with any text editor of your choice. For example, you can use gedit or nano:
@@ -94,6 +98,10 @@ define('DB_PASSWORD', 'wppass');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
+
+Config keys:
+
+https://api.wordpress.org/secret-key/1.1/salt/
 
 Save your file and exit. Finally open your browser and type this link to complete the installation of WordPress:
 
