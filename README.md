@@ -1,6 +1,13 @@
 # gce-wordpress
 wordpress server deployment log
 
+
+0. create user
+adduser (username)
+apt-get install sudo
+sudo adduser <username> sudo
+su - (username)
+
 http://www.linuxserve.com/2015/05/install-latest-wordpress-version-on.html
 
 1. LAMP Server Installation
